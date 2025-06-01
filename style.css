@@ -1,0 +1,33 @@
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  background: #f8f8f8;
+  color: #333;
+}
+header, section, footer {
+  padding: 2rem;
+  max-width: 700px;
+  margin: auto;
+}
+header {
+  background: #000;
+  color: #fff;
+  text-align: center;
+}
+h1, h2 {
+  margin-top: 0;
+}
+ul {
+  list-style: none;
+  padding: 0;
+}
+ul li {
+  padding: 0.25rem 0;
+}
+footer {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #666;
+}
