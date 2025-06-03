@@ -1,39 +1,341 @@
-body {
-  font-family: sans-serif;
+/* ---------------- Base Styles ---------------- */
+:root {
+  --bg-color: #000;
+  --text-color: #fff;
+  --accent-neon: #0ff;
+  --accent-gradient: linear-gradient(90deg, #0ff, #f0f);
+  --font-primary: 'Orbitron', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-primary), Arial, sans-serif;
   line-height: 1.6;
-  background: #f8f8f8;
-  color: #333;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
-header, section, footer {
-  padding: 2rem;
-  max-width: 700px;
-  margin: auto;
-}
-
+/* ---------------- Header ---------------- */
 header {
-  background: #000;
-  color: #fff;
-  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 1rem 2rem;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(5px);
 }
 
-h1, h2 {
-  margin-top: 0;
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  color: transparent;
 }
 
-ul {
+nav ul {
+  display: flex;
   list-style: none;
-  padding: 0;
+  gap: 1.5rem;
 }
 
-ul li {
-  padding: 0.25rem 0;
+nav a {
+  color: var(--text-color);
+  text-decoration: none;
+  transition: color 0.3s, text-shadow 0.3s;
 }
 
-footer {
+nav a:hover {
+  color: var(--accent-neon);
+  text-shadow: 0 0 5px var(--accent-neon);
+}
+
+/* ---------------- Hero ---------------- */
+#hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  font-size: 0.8rem;
-  color: #666;
+  overflow: hidden;
+  padding: 0 20px;
 }
+
+#hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  color: transparent;
+  margin-bottom: 1rem;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.cta-button {
+  display: inline-block;
+  background: var(--accent-gradient);
+  color: #000;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 0 10px var(--accent-neon);
+  transition: box-shadow 0.3s;
+}
+
+.cta-button:hover {
+  box-shadow: 0 0 20px var(--accent-neon);
+}
+
+/* ---------------- Sections ---------------- */
+section {
+  padding: 100px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* ---------------- Services ---------------- */
+.service-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--accent-neon);
+  padding: 2rem;
+  border-radius: 10px;
+  width: 300px;
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.card i {
+  font-size: 2rem;
+  color: var(--accent-neon);
+  margin-bottom: 1rem;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+/* ---------------- Portfolio ---------------- */
+.portfolio-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.portfolio-item {
+  position: relative;
+  width: 300px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 2px solid var(--accent-neon);
+  box-shadow: 0 0 20px var(--accent-neon);
+}
+
+.portfolio-item img {
+  width: 100%;
+  display: block;
+  transition: transform 0.5s;
+}
+
+.portfolio-item:hover img {
+  transform: scale(1.1);
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  background: rgba(0,0,0,0.8);
+  color: var(--accent-neon);
+  width: 100%;
+  padding: 10px;
+  transform: translateY(100%);
+  transition: transform 0.3s;
+}
+
+.portfolio-item:hover .overlay {
+  transform: translateY(0);
+}
+
+/* ---------------- Modal ---------------- */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.9);
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.modal-content {
+  background: #111;
+  padding: 2rem;
+  border-radius: 10px;
+  max-width: 600px;
+  color: var(--text-color);
+  border: 2px solid var(--accent-neon);
+  text-align: center;
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 2rem;
+  color: var(--accent-neon);
+  cursor: pointer;
+}
+
+/* ---------------- Testimonials ---------------- */
+#testimonials .testimonial {
+  background: rgba(255, 255, 255, 0.05);
+  border-left: 5px solid var(--accent-neon);
+  padding: 1rem;
+  margin-bottom: 1rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ---------------- Contact ---------------- */
+#contact form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+#contact input,
+#contact textarea {
+  padding: 0.75rem;
+  background: #111;
+  border: 2px solid var(--accent-neon);
+  color: var(--text-color);
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+#contact input:focus,
+#contact textarea:focus {
+  outline: none;
+  box-shadow: 0 0 10px var(--accent-neon);
+}
+
+#contact button {
+  background: var(--accent-gradient);
+  color: #000;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 0 10px var(--accent-neon);
+  transition: box-shadow 0.3s;
+}
+
+#contact button:hover {
+  box-shadow: 0 0 20px var(--accent-neon);
+}
+
+/* ---------------- Footer ---------------- */
+footer {
+  background: rgba(0,0,0,0.8);
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+}
+
+.social-links a {
+  color: var(--text-color);
+  margin: 0 0.5rem;
+  font-size: 1.2rem;
+  transition: color 0.3s, text-shadow 0.3s;
+}
+
+.social-links a:hover {
+  color: var(--accent-neon);
+  text-shadow: 0 0 5px var(--accent-neon);
+}
+
+/* ---------------- Responsive ---------------- */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .service-cards, .portfolio-gallery {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card, .portfolio-item {
+    width: 90%;
+  }
+
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+}
+	
