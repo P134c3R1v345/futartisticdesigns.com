@@ -3,49 +3,116 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Freelance logos, websites, and brand design." />
-  <title>Design by [Your Name]</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Futartistic Designs | Jane Doe</title>
+  <meta name="description" content="Futartistic designs by Jane Doe - Where art meets technology. Stunning websites, graphics, and interactive experiences.">
+  <meta property="og:title" content="Futartistic Designs | Jane Doe">
+  <meta property="og:description" content="Where art meets technology. Stunning websites, graphics, and interactive experiences.">
+  <meta property="og:image" content="images/og-image.jpg">
+  <link rel="stylesheet" href="css/styles.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanta/0.5.24/vanta.waves.min.js"></script>
+  <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
 </head>
 <body>
   <header>
-    <h1>Design by [Your Name]</h1>
-    <p>Logos. Websites. Simple. Fast. Affordable.</p>
+    <div class="logo">Futartistic</div>
+    <nav>
+      <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
   </header>
+
+  <section id="hero">
+    <div id="hero-bg"></div>
+    <div class="hero-content">
+      <h1>Futartistic Web Experiences</h1>
+      <p>Where art meets technology.</p>
+      <a href="#contact" class="cta-button">Start Your Project</a>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>I’m Jane Doe, a designer & developer crafting interactive, vibrant, and memorable digital experiences. Let’s bring your ideas to life!</p>
+  </section>
 
   <section id="services">
     <h2>Services</h2>
-    <ul>
-      <li>✔️ Logo Design</li>
-      <li>✔️ Websites (1-pager or full)</li>
-      <li>✔️ Social Media Branding</li>
-      <li>✔️ Apparel & Print</li>
-    </ul>
-  </section>
-
-  <section id="process">
-    <h2>How It Works</h2>
-    <p>We talk. I design. You launch. Easy.</p>
-  </section>
-
-  <section id="packages">
-    <h2>Custom Packages</h2>
-    <p>Starting at $100. Message me for quick quotes.</p>
+    <div class="service-cards">
+      <div class="card">
+        <i class="fas fa-paint-brush"></i>
+        <h3>Graphic Design</h3>
+        <p>Creating visually stunning designs that resonate with your audience.</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-code"></i>
+        <h3>Web Development</h3>
+        <p>Building responsive and interactive websites tailored to your needs.</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-bolt"></i>
+        <h3>Animations</h3>
+        <p>Adding dynamic animations to bring your site to life.</p>
+      </div>
+    </div>
   </section>
 
   <section id="portfolio">
     <h2>Portfolio</h2>
-    <p>[Add images or links to your past work here]</p>
+    <div class="portfolio-gallery">
+      <div class="portfolio-item" onclick="openModal('project1')">
+        <img src="images/project1.jpg" alt="Project 1"/>
+        <div class="overlay">
+          <h3>Project One</h3>
+        </div>
+      </div>
+      <!-- Repeat for more -->
+    </div>
+  </section>
+
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h3 id="modal-title"></h3>
+      <p id="modal-description"></p>
+    </div>
+  </div>
+
+  <section id="testimonials">
+    <h2>Testimonials</h2>
+    <div class="testimonial">
+      <p>"Jane’s work blew us away. She’s a visionary designer and a pleasure to collaborate with."</p>
+      <cite>- Alex Smith, CEO, NeonTech</cite>
+    </div>
   </section>
 
   <section id="contact">
-    <h2>Contact</h2>
-    <p>Email: your@email.com</p>
-    <p>DM me on Nextdoor or Instagram: @yourhandle</p>
+    <h2>Contact Me</h2>
+    <form id="contact-form">
+      <input type="text" name="name" placeholder="Your Name" required/>
+      <input type="email" name="email" placeholder="Your Email" required/>
+      <textarea name="message" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
   </section>
 
   <footer>
-    <p>© 2025 Design by [Your Name]</p>
+    <p>&copy; 2025 Futartistic Designs. All rights reserved.</p>
+    <div class="social-links">
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-dribbble"></i></a>
+      <a href="#"><i class="fab fa-behance"></i></a>
+    </div>
   </footer>
+
+  <script src="js/scripts.js"></script>
 </body>
 </html>
+
